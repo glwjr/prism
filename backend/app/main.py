@@ -1,16 +1,16 @@
 from typing import Annotated
 
 from fastapi import FastAPI, Security
-from utils import VerifyToken
+from .utils import VerifyToken
 
 app = FastAPI()
 auth = VerifyToken()
 
 
-@app.get("/")
-def root():
+@app.get("/api/public")
+def public():
     return {"message": "Hello World!"}
 
-@app.get("/private")
+@app.get("/api/private")
 def private(auth_result: str = Security(auth.verify)):
     return auth_result
