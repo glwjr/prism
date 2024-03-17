@@ -12,6 +12,9 @@ uvicorn = {extras = ["standard"], version = "^0.28.0"}
 pydantic-settings = "^2.2.1"
 pyjwt = {extras = ["crypto"], version = "^2.8.0"}
 python-dotenv = "^1.0.1"
+sqlalchemy = "^2.0.28"
+psycopg2 = "^2.9.9"
+sqlmodel = "^0.0.16"
 
 
 [build-system]
