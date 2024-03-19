@@ -39,6 +39,17 @@ class Activity(ActivityBase):
 
 class EntryBase(BaseModel):
     owner_id: str
+    mood_id: str
+    activities: list[Activity] = []
+
+
+class EntryCreate(EntryBase):
+    pass
+
+
+class EntryBase(BaseModel):
+    id: int
+    owner_id: str
     mood_id: int
     activities: list[Activity] = []
 
