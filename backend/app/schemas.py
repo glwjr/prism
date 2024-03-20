@@ -47,7 +47,7 @@ class EntryCreate(EntryBase):
     pass
 
 
-class EntryBase(BaseModel):
+class Entry(BaseModel):
     id: int
     owner_id: str
     mood_id: int

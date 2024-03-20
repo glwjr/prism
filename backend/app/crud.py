@@ -31,12 +31,18 @@ def get_entries_by_user_id(db: Session, user_id: str):
     return db.query(models.Entry).filter(models.Entry.owner_id == user_id).all()
 
 
-def create_user_entry(
-    db: Session, user_id: str, mood_id: str, activities: list[models.Activity]
-):
+def create_user_entry(db: Session, user_id: str, mood_id: str, activity_ids: list[int]):
     db_entry = models.Entry(owner_id=user_id, mood_id=mood_id)
-    db_entry.activities.extend(activities)
     db.add(db_entry)
+
+    for activity_id in activity_ids:
+        activity = (
+            db.query(models.Activity).filter(models.Activity.id == activity_id).first()
+        )
+
+        if activity and activity.owner_id == user_id:
+            db_entry.activities.append(activity)
+
     db.commit()
     db.refresh(db_entry)
     return db_entry

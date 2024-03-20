@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from app.api.deps import SessionDep, AuthDep
 from app import crud, schemas
 
+
 router = APIRouter()
 
 
