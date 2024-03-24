@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "prism-api"
+name = "app"
 version = "0.1.0"
 description = ""
 authors = ["Gary White <glw494@gmail.com>"]
